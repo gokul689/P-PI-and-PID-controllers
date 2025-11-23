@@ -52,38 +52,45 @@ The addition of an integral term to the controller ( ) tends to help reduce stea
 	Determine the steady state error and analyse the controllers.
 ## Program: 
 ### Without Controller (Open loop System)
-num =[1];
-den = [11020];
-sys = tf(num, den);
+```
+num = [1];
+den = [1 10 20];
+sys = tf(num, den);
 step(sys);
-
-
+```
 ### With P-Controller
+```
 num=[1];
-den=[1 1020];
-sys=tf(num,den)kp=300;
-C=pid(kp)；
-T=feedback(C*sys, 1);
+den=[1 10 20];
+sys=tf(num,den)
+kp=300;
+C=pid(kp);
+T=feedback(C*sys,1);
 step(T)
-
+```
 ### With PI Controller
-num=[1] 
-den=[11020];
-sys=tf(num, den)kp=30;
-ki=70;
-C=pid(kp, ki)；
-T=feedback(C*sys, 1);
-step(T)
-
-### With PID Controller
+```
 num=[1];
-den = [11020];
-sys = tf(num, den)Kp =350;
+den=[1 10 20];
+sys=tf(num,den)
+kp=30;
+ki=70;
+C=pid(kp,ki);
+T=feedback(C*sys,1);
+step(T)
+```
+### With PID Controller
+```
+num = [1];
+den = [1 10 20];
+sys = tf(num, den)
+Kp = 350;
 Ki = 300;
 Kd = 50;
-C=pid(Kp，Ki，Kd);
-T = feedback(C*sys, 1);
+C = pid(Kp, Ki, Kd);
+T = feedback(C*sys, 1);
 step(T)
+```
 
 ## Output: 
 ### Without Controller (Open loop System)
